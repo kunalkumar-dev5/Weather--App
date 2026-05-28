@@ -7,12 +7,12 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<div>
-    <div class="card">
-        <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt=""></button>
+<body>
+    <div>
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="enter city name" spellcheck="false">
+                <button><img src="images/search.png" alt=""></button>
         </div>
         <div class="error">
             <p>Invalid city name</p>
@@ -78,8 +78,10 @@
                 document.querySelector(".error").style.display = "none";
             }
         }
-        searchBtn.addEventListener("click", () => {
-            checkWeather(searchBox.value);
+        searchBtn.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                checkWeather(searchBox.value);
+            }
         });
     </script>
 
